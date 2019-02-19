@@ -11,9 +11,13 @@ public struct Question {
     let content : String
     let answer : String
 }
-
+enum CalcError: Error {
+    case divide_zero
+    case no_int
+    case more_big
+}
 protocol Level {
-    func makeQuestion() -> Question
+    func makeQuestion() -> Question?
 }
 
 class LevelTool {
@@ -31,7 +35,7 @@ class LevelTool {
             return ""
         }
     }
-    class func calcSign(_ a:Int,_ b:Int,_ sign : Int) -> Int {
+    class func calcSign(_ a:Int,_ b:Int,_ sign : Int) throws -> Int {
         switch sign {
         case 0:
             return a+b
@@ -40,6 +44,8 @@ class LevelTool {
         case 2:
             return a*b
         case 3:
+            if b == 0 {throw CalcError.divide_zero}
+            if Double(a) / Double(b) != Double(a/b) {throw CalcError.no_int}
             return a/b
         default:
             return 0

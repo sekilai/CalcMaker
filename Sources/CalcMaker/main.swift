@@ -15,9 +15,13 @@ do {
 }
 let num = count.value ?? 1
 var q : [Question] = []
-for _ in 1...num {
-    q.append(Level1().makeQuestion())
-}
+repeat {
+    let qn = Level2().makeQuestion()
+    if qn != nil {
+        q.append(qn!)
+    }
+}while(q.count < num)
+
 if std.wasSet {
     for c in 1...num {
         print("\(c). \(q[c - 1].content)  ->  \(q[c - 1].answer)")
