@@ -16,7 +16,7 @@ do {
 let num = count.value ?? 1
 var q : [Question] = []
 repeat {
-    let qn = Level2().makeQuestion()
+    let qn = Level1().makeQuestion()
     if qn != nil {
         q.append(qn!)
     }
