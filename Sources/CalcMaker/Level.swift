@@ -15,11 +15,36 @@ enum CalcError: Error {
     case divide_zero
     case no_int
     case more_big
+    case out_of_syllabus
+    case unknow
 }
-protocol Level {
+protocol Level : NSObjectProtocol {
     func makeQuestion() -> Question?
 }
-
+extension String {
+    var level: Int {
+        get {
+            if self == "+" || self == "-" {
+                return 1
+            }
+            if self == "x" || self == "÷" {
+                return 2
+            }
+            return 0
+        }
+        set {
+        
+        }
+    }
+    static var randomSign: String {
+        get {
+            return ["+","-","x","÷",][Int.random(in: 0...3)]
+        }
+        set {
+            
+        }
+    }
+}
 class LevelTool {
     class func makeSign(sign : Int) -> String {
         switch sign {
@@ -35,20 +60,31 @@ class LevelTool {
             return ""
         }
     }
-    class func calcSign(_ a:Int,_ b:Int,_ sign : Int) throws -> Int {
+    class func calcSign(_ a:Int,_ b:Int,_ sign : String) throws -> Int {
         switch sign {
-        case 0:
+        case "+":
             return a+b
-        case 1:
+        case "-":
             return a-b
-        case 2:
+        case "x":
             return a*b
-        case 3:
+        case "÷":
             if b == 0 {throw CalcError.divide_zero}
             if Double(a) / Double(b) != Double(a/b) {throw CalcError.no_int}
             return a/b
         default:
-            return 0
+            throw CalcError.unknow
         }
     }
+}
+func stringClassFromString(_ className: String) -> AnyClass! {
+    
+    /// get namespace
+    let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+    
+    /// get 'anyClass' with classname and namespace
+    let cls: AnyClass = NSClassFromString("\(namespace).\(className)")!
+    
+    // return AnyClass!
+    return cls
 }
