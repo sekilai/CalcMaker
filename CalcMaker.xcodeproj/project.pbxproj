@@ -150,7 +150,7 @@
             "OBJ_19"
          );
          name = "CommandLineKit";
-         path = ".build/checkouts/CommandLine--8969371082471098090/CommandLineKit";
+         path = ".build/checkouts/CommandLine--6196721583034528212/CommandLineKit";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_17" = {
@@ -181,7 +181,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/fsi-mac5d-11/Documents/sekirai/Downloads/CalcMaker/.build/checkouts/CommandLine--8969371082471098090/Package.swift";
+         path = "/Users/sekilai/Documents/CalcMaker/.build/checkouts/CommandLine--6196721583034528212/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_21" = {
