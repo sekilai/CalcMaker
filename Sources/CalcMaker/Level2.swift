@@ -8,7 +8,7 @@
 import Cocoa
 
 class Level2: NSObject, Level {
-    static let variables = ["a","b",""]
+    static let variables = ["a","b","TX"]
     class Node : CustomStringConvertible{
         var content : [String:Int] = [:]
         init(v:String, p:Int){
@@ -17,7 +17,7 @@ class Level2: NSObject, Level {
         var description: String {
             let v = content.keys.first
             let p = content.values.first
-            return String(format: "%@%@", p! <= 1 && v!.count > 0 ? "" : String(p!), v!)
+            return String(format: "%@%@", p! <= 1 && v! != "TX" ? "" : String(p!), v!).replacingOccurrences(of: "TX", with: "")
         }
         var toAns: String {
             var ans : String = ""
@@ -40,7 +40,7 @@ class Level2: NSObject, Level {
             if ans.starts(with: "- ") {
                 ans.remove(at: .init(encodedOffset: 1))
             }
-            return ans
+            return ans.replacingOccurrences(of: "TX", with: "")
         }
         func calc(node:Node, z:String)throws{
             switch z {
@@ -109,7 +109,7 @@ class Level2: NSObject, Level {
         do {
             switch (type, z1, z2, z3, z4) {
             case (0,_,_,_,_):
-                q = String(format: "\(a) \(z1) \(b) \(z2) \(c) \(z3) \(d) \(z3) \(e)")
+                q = String(format: "\(a) \(z1) \(b) \(z2) \(c) \(z3) \(d) \(z4) \(e)")
                 ans = try calcNode([a,b,c,d,e],[z1,z2,z3,z4])
             case (1,_,_,_,_):
                 q = String(format: "(\(a) \(z1) \(b)) \(z2) \(c) \(z3) \(d) \(z4) \(e)")
@@ -149,7 +149,7 @@ class Level2: NSObject, Level {
                 ans = try calcNode([calcNode([a,b],[z1]),c,calcNode([d,e],[z4])],[z2,z3])
             case (13,_,_,_,_):
                 q = String(format: "((\(a) \(z1) \(b) \(z2) \(c)) \(z3) \(d)) \(z4) \(e)")
-                ans = try calcNode([calcNode([calcNode([a,b],[z1]),c,d],[z2,z3]),e],[z4])
+                ans = try calcNode([calcNode([calcNode([a,b,c],[z1,z2]),d],[z3]),e],[z4])
             case (14,_,_,_,_):
                 q = String(format: "(\(a) \(z1) \(b) \(z2) \(c)) \(z3) (\(d) \(z4) \(e))")
                 ans = try calcNode([calcNode([a,b,c],[z1,z2]),calcNode([d,e],[z4])],[z3])
