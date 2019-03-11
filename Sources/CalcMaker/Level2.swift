@@ -8,7 +8,7 @@
 import Cocoa
 
 class Level2: NSObject, Level {
-    static let variables = ["a","b","TX"]
+    static let variables = ["a","b",""]
     class Node : CustomStringConvertible{
         var content : [String:Int] = [:]
         init(v:String, p:Int){
@@ -17,7 +17,7 @@ class Level2: NSObject, Level {
         var description: String {
             let v = content.keys.first
             let p = content.values.first
-            return String(format: "%@%@", p! <= 1 && v! != "TX" ? "" : String(p!), v!).replacingOccurrences(of: "TX", with: "")
+            return String(format: "%@%@", p! <= 1 && v!.count > 0 ? "" : String(p!), v!)
         }
         var toAns: String {
             var ans : String = ""
@@ -40,7 +40,7 @@ class Level2: NSObject, Level {
             if ans.starts(with: "- ") {
                 ans.remove(at: .init(encodedOffset: 1))
             }
-            return ans.replacingOccurrences(of: "TX", with: "")
+            return ans
         }
         func calc(node:Node, z:String)throws{
             switch z {
