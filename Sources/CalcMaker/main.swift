@@ -1,6 +1,16 @@
 import Foundation
 import CommandLineKit
 
+@discardableResult
+func shell(_ args: String...) -> Int32 {
+    let task = Process()
+    task.launchPath = "/usr/bin/env"
+    task.arguments = args
+    task.launch()
+    task.waitUntilExit()
+    return task.terminationStatus
+}
+
 let cli = CommandLineKit.CommandLine()
 let level = StringOption(shortFlag: "l", longFlag: "level", required:false, helpMessage: "Question level name")
 let count = IntOption(shortFlag: "c", longFlag: "count", required:false, helpMessage: "How many Questions")
@@ -20,42 +30,63 @@ if help.value {
     exit(0)
 }
 let num = count.value ?? 1
-var q : [Question] = []
 let lvl = level.value ?? "all"
 let Levels = ["Level1","Level2"]
 let fn = fnumber.value ?? 1
-repeat {
-    var lvname = lvl
-    if lvl == "all" {
-        lvname = Levels[Int.random(in:0..<Levels.count)]
-    }
-    let levelclass = NSClassFromString("CalcMaker.\(lvname)") as! NSObject.Type
-    let instance = levelclass.init()
-    let qn = (instance as! Level).makeQuestion()
-    if qn != nil {
-        q.append(qn!)
-    }
-}while(q.count < num)
+
 
 if std.wasSet {
+    var q : [Question] = []
+    repeat {
+        var lvname = lvl
+        if lvl == "all" {
+            lvname = Levels[Int.random(in:0..<Levels.count)]
+        }
+        let levelclass = NSClassFromString("CalcMaker.\(lvname)") as! NSObject.Type
+        let instance = levelclass.init()
+        let qn = (instance as! Level).makeQuestion()
+        if qn != nil {
+            q.append(qn!)
+        }
+    }while(q.count < num)
     for c in 0..<q.count {
         print("\(c + 1). \(q[c].content)  ->  \(q[c].answer)")
     }
 }else{
+    let answerFile = "./Answer.txt"
+    var answerString : String = ""
     for n in 0 ..< fn {
-        let questionFile = "./Question\(fn == 1 ? "" : "_" + String(n)).txt"
-        let answerFile = "./Answer\(fn == 1 ? "" : "_" + String(n)).txt"
+        var q : [Question] = []
+        repeat {
+            var lvname = lvl
+            if lvl == "all" {
+                lvname = Levels[Int.random(in:0..<Levels.count)]
+            }
+            let levelclass = NSClassFromString("CalcMaker.\(lvname)") as! NSObject.Type
+            let instance = levelclass.init()
+            let qn = (instance as! Level).makeQuestion()
+            if qn != nil {
+                q.append(qn!)
+            }
+        }while(q.count < num)
+        let questionFile = "Question\(fn == 1 ? "" : "_" + String(n))"
         var questionString : String = ""
-        var answerString : String = ""
         for c in 0..<q.count {
             questionString.append("\(c + 1). \(q[c].content)=\n")
         }
         for c in 0..<q.count {
             answerString.append("\(c + 1). \(q[c].answer)\n")
         }
-        try questionString.write(toFile: questionFile, atomically: false, encoding: .utf8)
-        try answerString.write(toFile: answerFile, atomically: false, encoding: .utf8)
+        answerString.append("------------------------- Answer_\(n)---------------\n")
+        try questionString.write(toFile: questionFile + ".txt", atomically: false, encoding: .utf8)
+        if fn > 1 {
+            shell("textutil", "-fontsize", "15", "-convert", "html", questionFile + ".txt")
+            //shell("cupsfilter", questionFile + ".html > " + questionFile + ".pdf")
+            //shell("rm", "-rf", questionFile + ".html")
+        }
     }
+    try answerString.write(toFile: answerFile, atomically: false, encoding: .utf8)
 }
+
 
 
