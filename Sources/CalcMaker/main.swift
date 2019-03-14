@@ -12,7 +12,7 @@ func shell(_ args: String...) -> Int32 {
 }
 
 let cli = CommandLineKit.CommandLine()
-let level = StringOption(shortFlag: "l", longFlag: "level", required:false, helpMessage: "Question level name")
+let level = MultiStringOption(shortFlag: "l", longFlag: "level", required:false, helpMessage: "Question level name")
 let count = IntOption(shortFlag: "c", longFlag: "count", required:false, helpMessage: "How many Questions")
 let file = StringOption(shortFlag: "f", longFlag: "outputfile", required:false, helpMessage: "Output file path")
 let std = BoolOption(shortFlag: "s", longFlag: "outputstdout", required:false, helpMessage: "Output to console")
@@ -30,19 +30,24 @@ if help.value {
     exit(0)
 }
 let num = count.value ?? 1
-let lvl = level.value ?? "all"
-let Levels = ["Level1","Level2"]
+let lvl = level.value ?? ["all"]
+let Levels = ["Level1","Level2","Level3","Level4"]
 let fn = fnumber.value ?? 1
-
-
+var lvnames : [String] = []
+if lvl.contains("all") {
+    lvnames = Levels
+}else{
+    lvnames = lvl.map({"Level" + $0}).filter({Levels.contains($0)})
+}
+if lvnames.count == 0 {
+    cli.printUsage()
+    exit(0)
+}
 if std.wasSet {
     var q : [Question] = []
     repeat {
-        var lvname = lvl
-        if lvl == "all" {
-            lvname = Levels[Int.random(in:0..<Levels.count)]
-        }
-        let levelclass = NSClassFromString("CalcMaker.\(lvname)") as! NSObject.Type
+        let lvn = lvnames[Int.random(in:0..<lvnames.count)]
+        let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
         let instance = levelclass.init()
         let qn = (instance as! Level).makeQuestion()
         if qn != nil {
@@ -58,11 +63,8 @@ if std.wasSet {
     for n in 0 ..< fn {
         var q : [Question] = []
         repeat {
-            var lvname = lvl
-            if lvl == "all" {
-                lvname = Levels[Int.random(in:0..<Levels.count)]
-            }
-            let levelclass = NSClassFromString("CalcMaker.\(lvname)") as! NSObject.Type
+            let lvn = lvnames[Int.random(in:0..<lvnames.count)]
+            let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
             let instance = levelclass.init()
             let qn = (instance as! Level).makeQuestion()
             if qn != nil {

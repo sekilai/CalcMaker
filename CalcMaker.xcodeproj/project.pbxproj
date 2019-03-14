@@ -22,15 +22,16 @@
 
 /* Begin PBXBuildFile section */
 		0C3FEF002236753A0079717B /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FEEFF2236753A0079717B /* Level3.swift */; };
+		794F5FDE223A131600067234 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CommandLine.swift */; };
+		794F5FDF223A131600067234 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Option.swift */; };
+		794F5FE0223A131600067234 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* StringExtensions.swift */; };
+		794F5FE2223A3DB800067234 /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F5FE1223A3DB800067234 /* Level4.swift */; };
 		OBJ_29 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Level.swift */; };
 		OBJ_30 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Level1.swift */; };
 		OBJ_31 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Level2.swift */; };
 		OBJ_32 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* main.swift */; };
 		OBJ_34 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */; };
 		OBJ_42 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_52 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CommandLine.swift */; };
-		OBJ_53 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Option.swift */; };
-		OBJ_54 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* StringExtensions.swift */; };
 		OBJ_61 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Package.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0C3FEEFF2236753A0079717B /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
+		794F5FE1223A3DB800067234 /* Level4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
 		"CalcMaker::CalcMaker::Product" /* CalcMaker */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalcMaker; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CommandLineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
@@ -153,9 +155,10 @@
 			children = (
 				OBJ_9 /* Level.swift */,
 				OBJ_10 /* Level1.swift */,
-				0C3FEEFF2236753A0079717B /* Level3.swift */,
 				OBJ_11 /* Level2.swift */,
+				0C3FEEFF2236753A0079717B /* Level3.swift */,
 				OBJ_12 /* main.swift */,
+				794F5FE1223A3DB800067234 /* Level4.swift */,
 			);
 			name = CalcMaker;
 			path = Sources/CalcMaker;
@@ -262,6 +265,7 @@
 				0C3FEF002236753A0079717B /* Level3.swift in Sources */,
 				OBJ_29 /* Level.swift in Sources */,
 				OBJ_30 /* Level1.swift in Sources */,
+				794F5FE2223A3DB800067234 /* Level4.swift in Sources */,
 				OBJ_31 /* Level2.swift in Sources */,
 				OBJ_32 /* main.swift in Sources */,
 			);
@@ -279,9 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_52 /* CommandLine.swift in Sources */,
-				OBJ_53 /* Option.swift in Sources */,
-				OBJ_54 /* StringExtensions.swift in Sources */,
+				794F5FE0223A131600067234 /* StringExtensions.swift in Sources */,
+				794F5FDF223A131600067234 /* Option.swift in Sources */,
+				794F5FDE223A131600067234 /* CommandLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
