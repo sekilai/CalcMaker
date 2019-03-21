@@ -2,12 +2,23 @@ import Foundation
 import CommandLineKit
 
 @discardableResult
-func shell(_ args: String...) -> Int32 {
+func shell(_ args: String..., to file:String? ) -> Int32 {
     let task = Process()
     task.launchPath = "/usr/bin/env"
     task.arguments = args
-    task.launch()
+    if file != nil {
+        let pipe: Pipe = Pipe()
+        task.standardOutput = pipe
+        let pipe_error: Pipe = Pipe()
+        task.standardError = pipe_error
+        task.launch()
+        let out: Data = pipe.fileHandleForReading.readDataToEndOfFile()
+        try? out.write(to: URL(fileURLWithPath: file!))
+    }else{
+        task.launch()
+    }
     task.waitUntilExit()
+    
     return task.terminationStatus
 }
 
@@ -49,16 +60,17 @@ if std.wasSet {
         let lvn = lvnames[Int.random(in:0..<lvnames.count)]
         let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
         let instance = levelclass.init()
-        let qn = (instance as! Level).makeQuestion()
-        if qn != nil {
-            q.append(qn!)
+        var qn : Question? = nil
+        while qn == nil {
+            qn = (instance as! Level).makeQuestion()
         }
+        q.append(qn!)
     }while(q.count < num)
     for c in 0..<q.count {
         print("\(c + 1). \(q[c].content)  ->  \(q[c].answer)")
     }
 }else{
-    let answerFile = "./Answer.txt"
+    let answerFile = "./Answer"
     var answerString : String = ""
     for n in 0 ..< fn {
         var q : [Question] = []
@@ -66,10 +78,11 @@ if std.wasSet {
             let lvn = lvnames[Int.random(in:0..<lvnames.count)]
             let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
             let instance = levelclass.init()
-            let qn = (instance as! Level).makeQuestion()
-            if qn != nil {
-                q.append(qn!)
+            var qn : Question? = nil
+            while qn == nil {
+                qn = (instance as! Level).makeQuestion()
             }
+            q.append(qn!)
         }while(q.count < num)
         let questionFile = "Question\(fn == 1 ? "" : "_" + String(n))"
         var questionString : String = ""
@@ -82,12 +95,15 @@ if std.wasSet {
         answerString.append("------------------------- Answer_\(n)---------------\n")
         try questionString.write(toFile: questionFile + ".txt", atomically: false, encoding: .utf8)
         if fn > 1 {
-            shell("textutil", "-fontsize", "15", "-convert", "html", questionFile + ".txt")
-            //shell("cupsfilter", questionFile + ".html > " + questionFile + ".pdf")
-            //shell("rm", "-rf", questionFile + ".html")
+            shell("textutil", "-fontsize", "15", "-convert", "html", questionFile + ".txt", to: nil)
+            shell("cupsfilter", questionFile + ".html", to: questionFile + ".pdf")
+            shell("rm", "-rf", questionFile + ".html", to: nil)
+            shell("rm", "-rf", questionFile + ".txt", to: nil)
         }
     }
-    try answerString.write(toFile: answerFile, atomically: false, encoding: .utf8)
+    try answerString.write(toFile: answerFile + ".txt", atomically: false, encoding: .utf8)
+    shell("cupsfilter", answerFile + ".txt", to: answerFile + ".pdf")
+    shell("rm", "-rf", answerFile + ".txt", to: nil)
 }
 
 
