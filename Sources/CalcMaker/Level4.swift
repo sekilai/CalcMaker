@@ -16,18 +16,26 @@ class Level4: NSObject , Level {
         let d = Int.random(in: 1...c)
         let f = Gcd(c, d)
         let z1 = String.randomSign
-        if z1 == "x" || z1 == "÷" {return nil}
+        //if z1 == "x" || z1 == "÷" {return nil}
         let qa = b == a ? "1" : String(format: "%d / %d", b / e, a / e)
         let qb = c == d ? "1" : String(format: "%d / %d", d / f, c / f)
         let q = String(format: "%@ %@ %@", qa, z1, qb)
         let ld = a * c
-        let lu = try? LevelTool.calcSign(c*b,d*a,z1)
-        let g = abs(Gcd(lu!, ld))
-        var ans = String(format: "%d / %d", lu! / g, ld / g)
-        if lu == ld {
-            ans = "1"
-        }else if lu == 0 {
-            ans = "0"
+        var ans : String = ""
+        do {
+            let lu = try LevelTool.calcSign(c*b,d*a,z1)
+            let g = abs(Gcd(lu, ld))
+            ans = String(format: "%d / %d", lu / g, ld / g)
+            if lu == ld {
+                ans = "1"
+            }else if lu == 0 {
+                ans = "0"
+            }
+        }catch CalcError.no_int{
+            let g = abs(Gcd(c*b, d*a))
+            ans = String(format: "%d / %d", c*b / g, d*a / g)
+        }catch {
+            return nil
         }
         return Question(content: q,answer: ans)
   
