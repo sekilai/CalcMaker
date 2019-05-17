@@ -1,5 +1,4 @@
 import Foundation
-//import CommandLineKit
 
 @discardableResult
 func shell(_ args: String..., to file:String? ) -> Int32 {
@@ -21,8 +20,8 @@ func shell(_ args: String..., to file:String? ) -> Int32 {
     
     return task.terminationStatus
 }
-/*
-let cli = CommandLineKit.CommandLine()
+
+let cli = CommandLine()
 let level = MultiStringOption(shortFlag: "l", longFlag: "level", required:false, helpMessage: "Question level name")
 let count = IntOption(shortFlag: "c", longFlag: "count", required:false, helpMessage: "How many Questions")
 let file = StringOption(shortFlag: "f", longFlag: "outputfile", required:false, helpMessage: "Output file path")
@@ -39,37 +38,37 @@ do {
 if help.value {
     cli.printUsage()
     exit(0)
-}*/
-let num = 40//count.value ?? 1
-let lvl = ["1","2","4"]//level.value ?? ["all"]
+}
+let num = count.value ?? 1
+let lvl = level.value ?? ["all"]
 let Levels = ["Level1","Level2","Level3","Level4"]
-let fn = 10//fnumber.value ?? 1
+let fn = fnumber.value ?? 1
 var lvnames : [String] = []
 if lvl.contains("all") {
     lvnames = Levels
 }else{
     lvnames = lvl.map({"Level" + $0}).filter({Levels.contains($0)})
 }
-//if lvnames.count == 0 {
-//    cli.printUsage()
-//    exit(0)
-//}
-////if std.wasSet {
-//    var q : [Question] = []
-//    repeat {
-//        let lvn = lvnames[Int.random(in:0..<lvnames.count)]
-//        let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
-//        let instance = levelclass.init()
-//        var qn : Question? = nil
-//        while qn == nil {
-//            qn = (instance as! Level).makeQuestion()
-//        }
-//        q.append(qn!)
-//    }while(q.count < num)
-//    for c in 0..<q.count {
-//        print("\(c + 1). \(q[c].content)  ->  \(q[c].answer)")
-//    }
-//}else{
+if lvnames.count == 0 {
+    cli.printUsage()
+    exit(0)
+}
+if std.wasSet {
+    var q : [Question] = []
+    repeat {
+        let lvn = lvnames[Int.random(in:0..<lvnames.count)]
+        let levelclass = NSClassFromString("CalcMaker.\(lvn)") as! NSObject.Type
+        let instance = levelclass.init()
+        var qn : Question? = nil
+        while qn == nil {
+            qn = (instance as! Level).makeQuestion()
+        }
+        q.append(qn!)
+    }while(q.count < num)
+    for c in 0..<q.count {
+        print("\(c + 1). \(q[c].content)  ->  \(q[c].answer)")
+    }
+}else{
     let answerFile = "./Answer"
     var answerString : String = ""
     for n in 0 ..< fn {
@@ -104,7 +103,7 @@ if lvl.contains("all") {
     try answerString.write(toFile: answerFile + ".txt", atomically: false, encoding: .utf8)
     shell("cupsfilter", answerFile + ".txt", to: answerFile + ".pdf")
     shell("rm", "-rf", answerFile + ".txt", to: nil)
-//}
+}
 
 
 
