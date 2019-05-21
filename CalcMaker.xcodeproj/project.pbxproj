@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		OBJ_29 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CommandLine.swift */; };
-		OBJ_30 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Level.swift */; };
-		OBJ_31 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Level1.swift */; };
-		OBJ_32 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Level2.swift */; };
-		OBJ_33 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Level3.swift */; };
-		OBJ_34 /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Level4.swift */; };
-		OBJ_35 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Option.swift */; };
-		OBJ_36 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* StringExtensions.swift */; };
-		OBJ_37 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* main.swift */; };
-		OBJ_44 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		7945CE022293EC6B00218677 /* SplitPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7945CE012293EC6B00218677 /* SplitPDF.swift */; };
+		OBJ_27 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CommandLine.swift */; };
+		OBJ_28 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Level.swift */; };
+		OBJ_29 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Level1.swift */; };
+		OBJ_30 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Level2.swift */; };
+		OBJ_31 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Level3.swift */; };
+		OBJ_32 /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Level4.swift */; };
+		OBJ_33 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Option.swift */; };
+		OBJ_34 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* StringExtensions.swift */; };
+		OBJ_35 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* main.swift */; };
+		OBJ_42 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7945CDFD2293EB1F00218677 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7945CE012293EC6B00218677 /* SplitPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitPDF.swift; sourceTree = "<group>"; };
 		"CalcMaker::CalcMaker::Product" /* CalcMaker */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalcMaker; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
@@ -29,13 +43,13 @@
 		OBJ_15 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		OBJ_16 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		OBJ_17 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_23 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_38 /* Frameworks */ = {
+		OBJ_36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -53,14 +67,15 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_19 /* Products */,
-				OBJ_23 /* README.md */,
+				OBJ_21 /* README.md */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -74,6 +89,7 @@
 		OBJ_8 /* CalcMaker */ = {
 			isa = PBXGroup;
 			children = (
+				7945CE012293EC6B00218677 /* SplitPDF.swift */,
 				OBJ_9 /* CommandLine.swift */,
 				OBJ_10 /* Level.swift */,
 				OBJ_11 /* Level1.swift */,
@@ -93,10 +109,11 @@
 /* Begin PBXNativeTarget section */
 		"CalcMaker::CalcMaker" /* CalcMaker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_25 /* Build configuration list for PBXNativeTarget "CalcMaker" */;
+			buildConfigurationList = OBJ_23 /* Build configuration list for PBXNativeTarget "CalcMaker" */;
 			buildPhases = (
-				OBJ_28 /* Sources */,
-				OBJ_38 /* Frameworks */,
+				OBJ_26 /* Sources */,
+				OBJ_36 /* Frameworks */,
+				7945CDFD2293EB1F00218677 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -109,9 +126,9 @@
 		};
 		"CalcMaker::SwiftPMPackageDescription" /* CalcMakerPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_40 /* Build configuration list for PBXNativeTarget "CalcMakerPackageDescription" */;
+			buildConfigurationList = OBJ_38 /* Build configuration list for PBXNativeTarget "CalcMakerPackageDescription" */;
 			buildPhases = (
-				OBJ_43 /* Sources */,
+				OBJ_41 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -138,7 +155,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5;
+			mainGroup = OBJ_5 /*  */;
 			productRefGroup = OBJ_19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,34 +167,35 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_28 /* Sources */ = {
+		OBJ_26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_29 /* CommandLine.swift in Sources */,
-				OBJ_30 /* Level.swift in Sources */,
-				OBJ_31 /* Level1.swift in Sources */,
-				OBJ_32 /* Level2.swift in Sources */,
-				OBJ_33 /* Level3.swift in Sources */,
-				OBJ_34 /* Level4.swift in Sources */,
-				OBJ_35 /* Option.swift in Sources */,
-				OBJ_36 /* StringExtensions.swift in Sources */,
-				OBJ_37 /* main.swift in Sources */,
+				OBJ_27 /* CommandLine.swift in Sources */,
+				OBJ_28 /* Level.swift in Sources */,
+				OBJ_29 /* Level1.swift in Sources */,
+				OBJ_30 /* Level2.swift in Sources */,
+				OBJ_31 /* Level3.swift in Sources */,
+				7945CE022293EC6B00218677 /* SplitPDF.swift in Sources */,
+				OBJ_32 /* Level4.swift in Sources */,
+				OBJ_33 /* Option.swift in Sources */,
+				OBJ_34 /* StringExtensions.swift in Sources */,
+				OBJ_35 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_43 /* Sources */ = {
+		OBJ_41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_44 /* Package.swift in Sources */,
+				OBJ_42 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_26 /* Debug */ = {
+		OBJ_24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -202,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_27 /* Release */ = {
+		OBJ_25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -254,6 +272,15 @@
 			};
 			name = Debug;
 		};
+		OBJ_39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -278,16 +305,7 @@
 			};
 			name = Release;
 		};
-		OBJ_41 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		OBJ_42 /* Release */ = {
+		OBJ_40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -308,20 +326,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_25 /* Build configuration list for PBXNativeTarget "CalcMaker" */ = {
+		OBJ_23 /* Build configuration list for PBXNativeTarget "CalcMaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_26 /* Debug */,
-				OBJ_27 /* Release */,
+				OBJ_24 /* Debug */,
+				OBJ_25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_40 /* Build configuration list for PBXNativeTarget "CalcMakerPackageDescription" */ = {
+		OBJ_38 /* Build configuration list for PBXNativeTarget "CalcMakerPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_41 /* Debug */,
-				OBJ_42 /* Release */,
+				OBJ_39 /* Debug */,
+				OBJ_40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
