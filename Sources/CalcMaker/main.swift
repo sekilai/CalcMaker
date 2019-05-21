@@ -119,7 +119,7 @@ if std.wasSet {
         }
         shell(["/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py", "-o","Question.pdf"] + fileoption, to: nil)
         shell(["rm", "-rf"] + fileoption, to: nil)
-        //shell("rm", "-rf", "splitPDF.py", to: nil)
+        shell("rm", "-rf", "splitPDF.py", to: nil)
     }
     try answerString.write(toFile: answerFile + ".txt", atomically: false, encoding: .utf8)
     shell("cupsfilter", answerFile + ".txt", to: answerFile + ".pdf")
