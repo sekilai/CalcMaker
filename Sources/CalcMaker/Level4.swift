@@ -23,13 +23,18 @@ class Level4: NSObject , Level {
         let ld = a * c
         var ans : String = ""
         do {
-            let lu = try LevelTool.calcSign(c*b,d*a,z1)
+            var lu = try LevelTool.calcSign(c*b,d*a,z1)
+            if z1 == "x" {
+                lu = try LevelTool.calcSign(b,d,z1)
+            }
             let g = abs(Gcd(lu, ld))
             ans = String(format: "%d / %d", lu / g, ld / g)
             if lu == ld {
                 ans = "1"
             }else if lu == 0 {
                 ans = "0"
+            }else if ld / g == 1 {
+                ans = String(format: "%d", lu / g)
             }
         }catch CalcError.no_int{
             let g = abs(Gcd(c*b, d*a))
