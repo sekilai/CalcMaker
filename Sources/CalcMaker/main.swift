@@ -44,7 +44,7 @@ if help.value {
 }
 let num = count.value ?? 1
 let lvl = level.value ?? ["all"]
-let Levels = ["Level1","Level2","Level3","Level4"]
+let Levels = ["Level1","Level2","Level3","Level4","Level5"]
 let fn = fnumber.value ?? 1
 var lvnames : [String] = []
 if lvl.contains("all") {
