@@ -20,12 +20,15 @@ class Level4: NSObject , Level {
         let qa = b == a ? "1" : String(format: "%d / %d", b / e, a / e)
         let qb = c == d ? "1" : String(format: "%d / %d", d / f, c / f)
         let q = String(format: "%@ %@ %@", qa, z1, qb)
-        let ld = a * c
+        var ld = a * c
         var ans : String = ""
         do {
             var lu = try LevelTool.calcSign(c*b,d*a,z1)
             if z1 == "x" {
                 lu = try LevelTool.calcSign(b,d,z1)
+            }else if z1 == "÷" {
+                ld = a * d
+                lu = b * c
             }
             let g = abs(Gcd(lu, ld))
             ans = String(format: "%d / %d", lu / g, ld / g)
