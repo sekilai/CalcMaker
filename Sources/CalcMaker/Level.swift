@@ -60,13 +60,16 @@ class LevelTool {
             return ""
         }
     }
-    class func calcSign(_ a:Int,_ b:Int,_ sign : String) throws -> Int {
+    class func calcSign64(_ a:Int64,_ b:Int64,_ sign : String) throws -> Int64 {
         switch sign {
         case "+":
             return a+b
         case "-":
             return a-b
         case "x":
+            if a*b > 1000000000 || a*b < -1000000000 {
+                throw CalcError.out_of_syllabus
+            }
             return a*b
         case "÷":
             if b == 0 {throw CalcError.divide_zero}
@@ -75,6 +78,9 @@ class LevelTool {
         default:
             throw CalcError.unknow
         }
+    }
+    class func calcSign(_ a:Int,_ b:Int,_ sign : String) throws -> Int {
+        return Int(try calcSign64(Int64(a), Int64(b), sign))
     }
 }
 func stringClassFromString(_ className: String) -> AnyClass! {
