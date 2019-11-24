@@ -11,8 +11,8 @@ class Level7: NSObject, Level {
     func makeQuestion() -> Question? {
         let a = Int.random(in: -10...10)
         let b = Int.random(in: -10...10)
-        let c = 1//Int.random(in: 1...10)
-        let d = 1//Int.random(in: 1...10)
+        let c = Int.random(in: 1...10)
+        let d = Int.random(in: 1...10)
         let m = (c * b) + (d * a)
         let n = (a * b)
         var q = String(format: "%@x²", c*d == 1 ? "" : String(format: "%d", c*d))

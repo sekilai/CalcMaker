@@ -100,9 +100,9 @@ if std.wasSet {
         }
         try questionString.write(toFile: questionFile + ".txt", atomically: false, encoding: .utf8)
         if fn > 1 {
-            shell("textutil", "-fontsize", "16", "-convert", "html", questionFile + ".txt", to: nil)
-            shell("cupsfilter", questionFile + ".html", to: questionFile + ".pdf")
-            shell("rm", "-rf", questionFile + ".html", to: nil)
+            //shell("textutil", "-fontsize", "16", "-convert", "html", questionFile + ".txt", to: nil)
+            shell("cupsfilter", "-o","lpi=4", "-o","cpi=8", questionFile + ".txt", to: questionFile + ".pdf")
+            //shell("rm", "-rf", questionFile + ".html", to: nil)
             shell("rm", "-rf", questionFile + ".txt", to: nil)
         }
     }
