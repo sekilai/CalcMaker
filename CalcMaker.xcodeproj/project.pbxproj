@@ -10,6 +10,7 @@
 		0726AE3A23126D380053E1C3 /* Level7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726AE3923126D380053E1C3 /* Level7.swift */; };
 		0C8AB35F22F8404500784BB9 /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8AB35E22F8404500784BB9 /* Level5.swift */; };
 		0CC469A1230657B2001741AE /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC469A0230657B2001741AE /* Level6.swift */; };
+		0CD5D794243DF04C00CCA76B /* Level8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5D793243DF04C00CCA76B /* Level8.swift */; };
 		7945CE022293EC6B00218677 /* SplitPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7945CE012293EC6B00218677 /* SplitPDF.swift */; };
 		OBJ_27 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CommandLine.swift */; };
 		OBJ_28 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Level.swift */; };
@@ -39,6 +40,7 @@
 		0726AE3923126D380053E1C3 /* Level7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level7.swift; sourceTree = "<group>"; };
 		0C8AB35E22F8404500784BB9 /* Level5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
 		0CC469A0230657B2001741AE /* Level6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
+		0CD5D793243DF04C00CCA76B /* Level8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level8.swift; sourceTree = "<group>"; };
 		7945CE012293EC6B00218677 /* SplitPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitPDF.swift; sourceTree = "<group>"; };
 		"CalcMaker::CalcMaker::Product" /* CalcMaker */ = {isa = PBXFileReference; lastKnownFileType = text; path = CalcMaker; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				0C8AB35E22F8404500784BB9 /* Level5.swift */,
 				0CC469A0230657B2001741AE /* Level6.swift */,
 				0726AE3923126D380053E1C3 /* Level7.swift */,
+				0CD5D793243DF04C00CCA76B /* Level8.swift */,
 				OBJ_17 /* main.swift */,
 				OBJ_15 /* Option.swift */,
 				7945CE012293EC6B00218677 /* SplitPDF.swift */,
@@ -186,6 +189,7 @@
 				OBJ_30 /* Level2.swift in Sources */,
 				OBJ_31 /* Level3.swift in Sources */,
 				7945CE022293EC6B00218677 /* SplitPDF.swift in Sources */,
+				0CD5D794243DF04C00CCA76B /* Level8.swift in Sources */,
 				OBJ_32 /* Level4.swift in Sources */,
 				OBJ_33 /* Option.swift in Sources */,
 				0CC469A1230657B2001741AE /* Level6.swift in Sources */,

@@ -44,7 +44,7 @@ if help.value {
 }
 let num = count.value ?? 1
 let lvl = level.value ?? ["all"]
-let Levels = ["Level1","Level2","Level3","Level4","Level5","Level6","Level7"]
+let Levels = ["Level1","Level2","Level3","Level4","Level5","Level6","Level7","Level8"]
 let fn = fnumber.value ?? 1
 var lvnames : [String] = []
 if lvl.contains("all") {
@@ -89,7 +89,7 @@ if std.wasSet {
         let questionFile = "Question\(fn == 1 ? "" : "_" + String(n))"
         var questionString : String = ""
         for c in 0..<q.count {
-            questionString.append("\(c + 1). \(q[c].content)=\n")
+            questionString.append("\(c + 1). \(q[c].content)=\n\n")
         }
         answerString.append("------------------------- Answer_\(n)---------------\n")
         for c in 0..<q.count {
@@ -100,8 +100,9 @@ if std.wasSet {
         }
         try questionString.write(toFile: questionFile + ".txt", atomically: false, encoding: .utf8)
         if fn > 1 {
+            //https://stuff.mit.edu/afs/athena/astaff/project/opssrc/cups/cups-1.4.4/doc/help/options.html
             //shell("textutil", "-fontsize", "16", "-convert", "html", questionFile + ".txt", to: nil)
-            shell("cupsfilter", "-o","lpi=4", "-o","cpi=8", questionFile + ".txt", to: questionFile + ".pdf")
+            shell("cupsfilter", "-o","lpi=4", "-o","cpi=8", "-o","columns=2", questionFile + ".txt", to: questionFile + ".pdf")
             //shell("rm", "-rf", questionFile + ".html", to: nil)
             shell("rm", "-rf", questionFile + ".txt", to: nil)
         }
