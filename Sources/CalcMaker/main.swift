@@ -44,7 +44,7 @@ if help.value {
 }
 let num = count.value ?? 1
 let lvl = level.value ?? ["all"]
-let Levels = ["Level1","Level2","Level3","Level4","Level5","Level6","Level7","Level8"]
+let Levels = ["Level1","Level2","Level3","Level4","Level5","Level6","Level7","Level8","Level9"]
 let fn = fnumber.value ?? 1
 var lvnames : [String] = []
 if lvl.contains("all") {
@@ -96,7 +96,7 @@ if std.wasSet {
             answerString.append("\(c + 1). \(q[c].answer)\n")
         }
         if fn > 1 {
-            questionString = "Question \(n)\n" + questionString
+            questionString = "Question \(n)\n\n" + questionString
         }
         try questionString.write(toFile: questionFile + ".txt", atomically: false, encoding: .utf8)
         if fn > 1 {

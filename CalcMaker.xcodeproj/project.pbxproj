@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0726AE3A23126D380053E1C3 /* Level7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726AE3923126D380053E1C3 /* Level7.swift */; };
+		0C271D8C2470E46500DB9A81 /* Level9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C271D8B2470E46500DB9A81 /* Level9.swift */; };
 		0C8AB35F22F8404500784BB9 /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8AB35E22F8404500784BB9 /* Level5.swift */; };
 		0CC469A1230657B2001741AE /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC469A0230657B2001741AE /* Level6.swift */; };
 		0CD5D794243DF04C00CCA76B /* Level8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5D793243DF04C00CCA76B /* Level8.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0726AE3923126D380053E1C3 /* Level7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level7.swift; sourceTree = "<group>"; };
+		0C271D8B2470E46500DB9A81 /* Level9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level9.swift; sourceTree = "<group>"; };
 		0C8AB35E22F8404500784BB9 /* Level5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
 		0CC469A0230657B2001741AE /* Level6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
 		0CD5D793243DF04C00CCA76B /* Level8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level8.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				OBJ_15 /* Option.swift */,
 				7945CE012293EC6B00218677 /* SplitPDF.swift */,
 				OBJ_16 /* StringExtensions.swift */,
+				0C271D8B2470E46500DB9A81 /* Level9.swift */,
 			);
 			name = CalcMaker;
 			path = Sources/CalcMaker;
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				0C271D8C2470E46500DB9A81 /* Level9.swift in Sources */,
 				OBJ_27 /* CommandLine.swift in Sources */,
 				0C8AB35F22F8404500784BB9 /* Level5.swift in Sources */,
 				OBJ_28 /* Level.swift in Sources */,

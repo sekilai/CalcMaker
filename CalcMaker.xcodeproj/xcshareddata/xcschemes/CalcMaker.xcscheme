@@ -53,18 +53,26 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-s"
-            isEnabled = "NO">
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-l 9"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-n 2"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-l 7"
-            isEnabled = "YES">
+            argument = "-l 1 4 5 6 8 9"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-c 40"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-c 20"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
